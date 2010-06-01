@@ -47,7 +47,6 @@ samples << sample if sample
 result = samples.last
 
 if ARGV[0] == 'config'
-  puts "multigraph Load Average"
   puts "graph_title Load Average"
   puts "graph_category system"
   puts "graph_vlabel load"
@@ -57,13 +56,13 @@ if ARGV[0] == 'config'
   puts "load.value #{result[:load][:min5]}"
   puts "load.info Average load for the last 5 minutes"
   
-  puts "multigraph Process Count"
   puts "graph_title Process Count"
   puts "graph_category system"
   puts "graph_vlabel p_count"
   puts "p_count.label process count"
   puts "p_count.value #{result[:processes][:total]}"
   puts "p_count Total number or processes"
-
+elsif ARGV[1] == 'fetch'
+  puts "load.value #{result[:load][:min5]}"
+  puts "p_count.value #{result[:processes][:total]}"
 end
-
