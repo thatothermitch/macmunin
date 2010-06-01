@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+
+exit if ARGV.size == 0
+
 require 'stringio'
 def getio; StringIO.new `top -l 3 -stats pid,command,cpu,time,ports -n 10`; end
 io = getio
@@ -44,7 +47,7 @@ samples << sample if sample
 result = samples.last
 
 if ARGV[0] == 'config'
-
+  puts "multigraph Load Average"
   puts "graph_title Load Average"
   puts "graph_category system"
   puts "graph_vlabel load"
@@ -54,6 +57,7 @@ if ARGV[0] == 'config'
   puts "load.value #{result[:load][:min5]}"
   puts "load.info Average load for the last 5 minutes"
   
+  puts "multigraph Process Count"
   puts "graph_title Process Count"
   puts "graph_category system"
   puts "graph_vlabel p_count"
