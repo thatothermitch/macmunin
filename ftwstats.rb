@@ -61,7 +61,7 @@ if ARGV[0] == 'config'
   puts "graph_vlabel p_count"
   puts "p_count.label process count"
   puts "p_count.value #{result[:processes][:total]}"
-  puts "p_count Total number or processes"
+  puts "p_count.info Total number or processes"
 elsif ARGV[1] == 'fetch'
   puts "load.value #{result[:load][:min5]}"
   puts "p_count.value #{result[:processes][:total]}"
